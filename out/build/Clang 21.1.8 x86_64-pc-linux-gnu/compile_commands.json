@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu",
+  "command": "/usr/bin/clang++   -g -o CMakeFiles/watermark.dir/main.cpp.o -c /home/nikigleb/ispro/labs/watermark/main.cpp",
+  "file": "/home/nikigleb/ispro/labs/watermark/main.cpp",
+  "output": "CMakeFiles/watermark.dir/main.cpp.o"
+}
+]
