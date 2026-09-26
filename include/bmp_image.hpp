@@ -1,8 +1,6 @@
 #pragma once
 
-#include <cstddef>
 #include <cstdint>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -31,48 +29,27 @@ struct BmpInfoHeader {
     std::uint32_t colors_important; 
 };
 
-#pragma pack(pop)
-
 struct Pixel {
-    std::uint8_t blue = 0;
-    std::uint8_t green = 0;
-    std::uint8_t red = 0;
-
-    bool operator==(const Pixel& other) const {
-        return blue == other.blue && green == other.green && red == other.red;
-    }
-
-    bool operator!=(const Pixel& other) const {
-        return !(*this == other);
-    }
+    std::uint8_t blue;
+    std::uint8_t green;
+    std::uint8_t red;
 };
 
-constexpr Pixel rgb(std::uint8_t red, std::uint8_t green, std::uint8_t blue) {
-    return Pixel{blue, green, red};
-}
+#pragma pack(pop)
 
 class BmpImage {
     public:
-        BmpImage() = default;
-        BmpImage(int width, int height, Pixel fill = Pixel{});
+        int width = 0;
+        int height = 0;
+        std::vector<Pixel> pixels;   
 
         void load(const std::string& path);
         void save(const std::string& path) const;
 
-        int width() const { return width_; }
-        int height() const { return height_; }
-        int bit_depth() const { return 24; }
-        bool empty() const { return pixels_.empty(); }
-
-        Pixel& at(int x, int y);
-        const Pixel& at(int x, int y) const;
-
-        static std::size_t row_stride(int width);
-
-    private:
-        std::size_t index_of(int x, int y) const;
-
-        int width_ = 0;
-        int height_ = 0;
-        std::vector<Pixel> pixels_;
+        Pixel& at(int x, int y) { 
+            return pixels[y * width + x]; 
+        }
+        const Pixel& at(int x, int y) const { 
+            return pixels[y * width + x]; 
+        }
 };
