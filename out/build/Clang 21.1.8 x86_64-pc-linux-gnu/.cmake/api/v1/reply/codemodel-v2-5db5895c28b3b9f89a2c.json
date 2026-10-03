@@ -13,11 +13,7 @@
 						"string" : "3.10.0"
 					},
 					"projectIndex" : 0,
-					"source" : ".",
-					"targetIndexes" : 
-					[
-						0
-					]
+					"source" : "."
 				}
 			],
 			"name" : "Debug",
@@ -28,23 +24,10 @@
 					[
 						0
 					],
-					"name" : "watermark",
-					"targetIndexes" : 
-					[
-						0
-					]
+					"name" : "watermark"
 				}
 			],
-			"targets" : 
-			[
-				{
-					"directoryIndex" : 0,
-					"id" : "watermark::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-watermark-Debug-f4e651f36116ff1c47d8.json",
-					"name" : "watermark",
-					"projectIndex" : 0
-				}
-			]
+			"targets" : []
 		}
 	],
 	"kind" : "codemodel",
