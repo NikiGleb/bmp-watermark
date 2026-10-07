@@ -3,4 +3,5 @@ test
 tiny.bmp
 .vscode/
 out/
+build/
 test_bmp
