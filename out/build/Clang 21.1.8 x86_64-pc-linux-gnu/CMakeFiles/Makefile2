@@ -63,11 +63,13 @@ CMAKE_BINARY_DIR = "/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all:
+all: CMakeFiles/bmp_watermark.dir/all
+all: CMakeFiles/watermark.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen:
+codegen: CMakeFiles/bmp_watermark.dir/codegen
+codegen: CMakeFiles/watermark.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,8 +77,73 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean:
+clean: CMakeFiles/bmp_watermark.dir/clean
+clean: CMakeFiles/watermark.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/bmp_watermark.dir
+
+# All Build rule for target.
+CMakeFiles/bmp_watermark.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" --progress-num=1,2,3 "Built target bmp_watermark"
+.PHONY : CMakeFiles/bmp_watermark.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/bmp_watermark.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bmp_watermark.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" 0
+.PHONY : CMakeFiles/bmp_watermark.dir/rule
+
+# Convenience name for target.
+bmp_watermark: CMakeFiles/bmp_watermark.dir/rule
+.PHONY : bmp_watermark
+
+# codegen rule for target.
+CMakeFiles/bmp_watermark.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" --progress-num=1,2,3 "Finished codegen for target bmp_watermark"
+.PHONY : CMakeFiles/bmp_watermark.dir/codegen
+
+# clean rule for target.
+CMakeFiles/bmp_watermark.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/clean
+.PHONY : CMakeFiles/bmp_watermark.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/watermark.dir
+
+# All Build rule for target.
+CMakeFiles/watermark.dir/all: CMakeFiles/bmp_watermark.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/watermark.dir/build.make CMakeFiles/watermark.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/watermark.dir/build.make CMakeFiles/watermark.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" --progress-num=4,5 "Built target watermark"
+.PHONY : CMakeFiles/watermark.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/watermark.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/watermark.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" 0
+.PHONY : CMakeFiles/watermark.dir/rule
+
+# Convenience name for target.
+watermark: CMakeFiles/watermark.dir/rule
+.PHONY : watermark
+
+# codegen rule for target.
+CMakeFiles/watermark.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/watermark.dir/build.make CMakeFiles/watermark.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" --progress-num=4,5 "Finished codegen for target watermark"
+.PHONY : CMakeFiles/watermark.dir/codegen
+
+# clean rule for target.
+CMakeFiles/watermark.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/watermark.dir/build.make CMakeFiles/watermark.dir/clean
+.PHONY : CMakeFiles/watermark.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

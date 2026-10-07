@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/clang++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/nikigleb/ispro/labs/watermark/include
 
-CXX_FLAGS = -g
+CXX_FLAGS = -g -Wall -Wextra
 

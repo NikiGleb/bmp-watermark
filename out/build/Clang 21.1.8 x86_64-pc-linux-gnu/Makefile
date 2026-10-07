@@ -116,6 +116,104 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named bmp_watermark
+
+# Build rule for target.
+bmp_watermark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bmp_watermark
+.PHONY : bmp_watermark
+
+# fast build rule for target.
+bmp_watermark/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/build
+.PHONY : bmp_watermark/fast
+
+#=============================================================================
+# Target rules for targets named watermark
+
+# Build rule for target.
+watermark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 watermark
+.PHONY : watermark
+
+# fast build rule for target.
+watermark/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/watermark.dir/build.make CMakeFiles/watermark.dir/build
+.PHONY : watermark/fast
+
+src/bmp_image.o: src/bmp_image.cpp.o
+.PHONY : src/bmp_image.o
+
+# target to build an object file
+src/bmp_image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/src/bmp_image.cpp.o
+.PHONY : src/bmp_image.cpp.o
+
+src/bmp_image.i: src/bmp_image.cpp.i
+.PHONY : src/bmp_image.i
+
+# target to preprocess a source file
+src/bmp_image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/src/bmp_image.cpp.i
+.PHONY : src/bmp_image.cpp.i
+
+src/bmp_image.s: src/bmp_image.cpp.s
+.PHONY : src/bmp_image.s
+
+# target to generate assembly for a file
+src/bmp_image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/src/bmp_image.cpp.s
+.PHONY : src/bmp_image.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/watermark.dir/build.make CMakeFiles/watermark.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/watermark.dir/build.make CMakeFiles/watermark.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/watermark.dir/build.make CMakeFiles/watermark.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+src/watermark.o: src/watermark.cpp.o
+.PHONY : src/watermark.o
+
+# target to build an object file
+src/watermark.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/src/watermark.cpp.o
+.PHONY : src/watermark.cpp.o
+
+src/watermark.i: src/watermark.cpp.i
+.PHONY : src/watermark.i
+
+# target to preprocess a source file
+src/watermark.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/src/watermark.cpp.i
+.PHONY : src/watermark.cpp.i
+
+src/watermark.s: src/watermark.cpp.s
+.PHONY : src/watermark.s
+
+# target to generate assembly for a file
+src/watermark.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bmp_watermark.dir/build.make CMakeFiles/bmp_watermark.dir/src/watermark.cpp.s
+.PHONY : src/watermark.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -124,6 +222,17 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... bmp_watermark"
+	@echo "... watermark"
+	@echo "... src/bmp_image.o"
+	@echo "... src/bmp_image.i"
+	@echo "... src/bmp_image.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/watermark.o"
+	@echo "... src/watermark.i"
+	@echo "... src/watermark.s"
 .PHONY : help
 
 

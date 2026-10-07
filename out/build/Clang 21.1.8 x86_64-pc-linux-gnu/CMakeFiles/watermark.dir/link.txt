@@ -1,1 +1,1 @@
-/usr/bin/clang++ -g -Xlinker --dependency-file=CMakeFiles/watermark.dir/link.d CMakeFiles/watermark.dir/main.cpp.o -o watermark
+/usr/bin/clang++ -g -Xlinker --dependency-file=CMakeFiles/watermark.dir/link.d CMakeFiles/watermark.dir/src/main.cpp.o -o watermark  libbmp_watermark.a

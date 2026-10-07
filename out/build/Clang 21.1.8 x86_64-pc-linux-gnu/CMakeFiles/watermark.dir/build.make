@@ -72,30 +72,31 @@ include CMakeFiles/watermark.dir/flags.make
 CMakeFiles/watermark.dir/codegen:
 .PHONY : CMakeFiles/watermark.dir/codegen
 
-CMakeFiles/watermark.dir/main.cpp.o: CMakeFiles/watermark.dir/flags.make
-CMakeFiles/watermark.dir/main.cpp.o: /home/nikigleb/ispro/labs/watermark/main.cpp
-CMakeFiles/watermark.dir/main.cpp.o: CMakeFiles/watermark.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/watermark.dir/main.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/watermark.dir/main.cpp.o -MF CMakeFiles/watermark.dir/main.cpp.o.d -o CMakeFiles/watermark.dir/main.cpp.o -c /home/nikigleb/ispro/labs/watermark/main.cpp
+CMakeFiles/watermark.dir/src/main.cpp.o: CMakeFiles/watermark.dir/flags.make
+CMakeFiles/watermark.dir/src/main.cpp.o: /home/nikigleb/ispro/labs/watermark/src/main.cpp
+CMakeFiles/watermark.dir/src/main.cpp.o: CMakeFiles/watermark.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/watermark.dir/src/main.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/watermark.dir/src/main.cpp.o -MF CMakeFiles/watermark.dir/src/main.cpp.o.d -o CMakeFiles/watermark.dir/src/main.cpp.o -c /home/nikigleb/ispro/labs/watermark/src/main.cpp
 
-CMakeFiles/watermark.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/watermark.dir/main.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikigleb/ispro/labs/watermark/main.cpp > CMakeFiles/watermark.dir/main.cpp.i
+CMakeFiles/watermark.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/watermark.dir/src/main.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikigleb/ispro/labs/watermark/src/main.cpp > CMakeFiles/watermark.dir/src/main.cpp.i
 
-CMakeFiles/watermark.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/watermark.dir/main.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikigleb/ispro/labs/watermark/main.cpp -o CMakeFiles/watermark.dir/main.cpp.s
+CMakeFiles/watermark.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/watermark.dir/src/main.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikigleb/ispro/labs/watermark/src/main.cpp -o CMakeFiles/watermark.dir/src/main.cpp.s
 
 # Object files for target watermark
 watermark_OBJECTS = \
-"CMakeFiles/watermark.dir/main.cpp.o"
+"CMakeFiles/watermark.dir/src/main.cpp.o"
 
 # External object files for target watermark
 watermark_EXTERNAL_OBJECTS =
 
-watermark: CMakeFiles/watermark.dir/main.cpp.o
+watermark: CMakeFiles/watermark.dir/src/main.cpp.o
 watermark: CMakeFiles/watermark.dir/build.make
 watermark: CMakeFiles/watermark.dir/compiler_depend.ts
+watermark: libbmp_watermark.a
 watermark: CMakeFiles/watermark.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable watermark"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/watermark.dir/link.txt --verbose=$(VERBOSE)

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/watermark.dir/link.d"
-  "CMakeFiles/watermark.dir/main.cpp.o"
-  "CMakeFiles/watermark.dir/main.cpp.o.d"
+  "CMakeFiles/watermark.dir/src/main.cpp.o"
+  "CMakeFiles/watermark.dir/src/main.cpp.o.d"
   "watermark"
   "watermark.pdb"
 )

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/nikigleb/ispro/labs/watermark/main.cpp" "CMakeFiles/watermark.dir/main.cpp.o" "gcc" "CMakeFiles/watermark.dir/main.cpp.o.d"
+  "/home/nikigleb/ispro/labs/watermark/src/main.cpp" "CMakeFiles/watermark.dir/src/main.cpp.o" "gcc" "CMakeFiles/watermark.dir/src/main.cpp.o.d"
   "" "watermark" "gcc" "CMakeFiles/watermark.dir/link.d"
   )
 

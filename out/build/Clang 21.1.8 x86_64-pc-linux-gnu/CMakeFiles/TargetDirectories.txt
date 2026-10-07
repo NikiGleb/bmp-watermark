@@ -1,2 +1,4 @@
+/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles/bmp_watermark.dir
+/home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles/watermark.dir
 /home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles/edit_cache.dir
 /home/nikigleb/ispro/labs/watermark/out/build/Clang 21.1.8 x86_64-pc-linux-gnu/CMakeFiles/rebuild_cache.dir
