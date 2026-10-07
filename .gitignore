@@ -1,3 +1,6 @@
 test.cpp
 test
 tiny.bmp
+.vscode/
+out/
+test_bmp
