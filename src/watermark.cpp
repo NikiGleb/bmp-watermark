@@ -6,12 +6,12 @@ uint8_t average(uint8_t a, uint8_t b) {
     return static_cast<uint8_t>(sum / 2);
 }
 
-Pixel blend_pixels(const Pixel& original, const Pixel& mark) {
+Pixel blend_pixels(const Pixel& original, const Pixel& watermark) {
     Pixel result;
 
-    result.red = average(original.red, mark.red);
-    result.green = average(original.green, mark.green);
-    result.blue = average(original.blue, mark.blue);
+    result.red = average(original.red, watermark.red);
+    result.green = average(original.green, watermark.green);
+    result.blue = average(original.blue, watermark.blue);
 
     return result;
 }
