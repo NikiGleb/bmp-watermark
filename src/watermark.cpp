@@ -21,7 +21,7 @@ BmpImage apply_watermark(const BmpImage& original, const BmpImage& watermark) {
 
     for (int y = 0; y < original.height; y++) {
         for (int x = 0; x < original.width; x++) {
-            Pixel mixed = blend_pixels(original.at(x, y), watermark.at(x, y));
+            result.at(x, y) = blend_pixels(original.at(x, y), watermark.at(x, y));
         }
     }
 
