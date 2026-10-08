@@ -1,8 +1,13 @@
 #include "bmp_image.hpp"
 #include <fstream>
+#include <iostream>
 
-void BmpImage::load(const std::string& path) {
+bool BmpImage::load(const std::string& path) {
     std::ifstream in(path, std::ios::binary);
+    if (!in.is_open()) {
+        std::cerr << "Error: cannot open file " << path << "\n";
+        return false;
+    }
 
     BmpFileHeader file_header;
     BmpInfoHeader info_header;
@@ -24,7 +29,13 @@ void BmpImage::load(const std::string& path) {
     }
 }
 
-void BmpImage::save(const std::string& path) const {
+bool BmpImage::save(const std::string& path) const {
+    std::ofstream out(path, std::ios::binary);
+    if (!out.is_open()) {
+        std::cerr << "Error: cannot create file " << path << "\n";
+        return false;
+    }
+
     int padding = (4 - (width * 3) % 4) % 4;
     int row_size = width * 3 + padding;
 
@@ -41,7 +52,6 @@ void BmpImage::save(const std::string& path) const {
     info_header.bits_per_pixel = 24;
     info_header.image_size = row_size * height;
 
-    std::ofstream out(path, std::ios::binary);
     out.write(reinterpret_cast<const char*>(&file_header), sizeof(file_header));
     out.write(reinterpret_cast<const char*>(&info_header), sizeof(info_header));
 

@@ -47,8 +47,8 @@ class BmpImage {
         int height = 0;
         std::vector<Pixel> pixels;   
 
-        void load(const std::string& path);
-        void save(const std::string& path) const;
+        bool load(const std::string& path);
+        bool save(const std::string& path) const;
 
         Pixel& at(int x, int y) { 
             return pixels[y * width + x]; 
