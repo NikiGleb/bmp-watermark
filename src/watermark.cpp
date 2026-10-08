@@ -19,9 +19,13 @@ Pixel blend_pixels(const Pixel& original, const Pixel& watermark) {
 BmpImage apply_watermark(const BmpImage& original, const BmpImage& watermark) {
     BmpImage result = original;
 
-    for (int y = 0; y < original.height; y++) {
-        for (int x = 0; x < original.width; x++) {
-            result.at(x, y) = blend_pixels(original.at(x, y), watermark.at(x, y));
+    const int translocation_x = original.width - watermark.width;
+    const int translocation_y = original.height - watermark.height;
+
+    for (int y = 0; y < watermark.height; y++) {
+        for (int x = 0; x < watermark.width; x++) {
+            Pixel& pixel = result.at(translocation_x + x, translocation_y + y);
+            pixel = blend_pixels(pixel, watermark.at(x, y));
         }
     }
 
