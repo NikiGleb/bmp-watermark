@@ -37,6 +37,10 @@ struct Pixel {
 
 #pragma pack(pop)
 
+static_assert(sizeof(BmpFileHeader) == 14, "BmpFileHeader must be 14 bytes");
+static_assert(sizeof(BmpInfoHeader) == 40, "BmpInfoHeader must be 40 bytes");
+static_assert(sizeof(Pixel) == 3, "Pixel must be 3 bytes");
+
 class BmpImage {
     public:
         int width = 0;
