@@ -2,15 +2,19 @@
 
 #include <watermark.hpp>
 
-constexpr  double kAlpha = 0.5;
+// Непрозрачность водяного знака: 0.0 — знака не видно, 1.0 — знак закрывает изображение
+// kAlpha должен лежать внутри [0, 1]
+constexpr double kAlpha = 0.5;
 static_assert(kAlpha >= 0.0 && kAlpha <= 1.0, "kAlpha must be between 0.0 and 1.0");
 
+// Функция для вычисления кода смешанного цвета
 uint8_t mix(uint8_t a, uint8_t b) {
     double value = a * (1.0 - kAlpha) + b * kAlpha;
 
     return static_cast<uint8_t>(std::round(value));
 }
 
+// Функция для смешивания пикселей исходного и водяного изображения
 Pixel blend_pixels(const Pixel& original, const Pixel& watermark) {
     Pixel result;
 
@@ -21,16 +25,19 @@ Pixel blend_pixels(const Pixel& original, const Pixel& watermark) {
     return result;
 }
 
+// Функция проверяет является ли цвет пикселя белым
 bool is_white(const Pixel& pixel) {
     return pixel.red == 255 && pixel.green == 255 && pixel.blue == 255;
 }
 
+// Функция для пропуска (а не смешивания) пикселей, не относящихся к изображению водяного знака
 void pass_watermark_border(const BmpImage& watermark, int& x, int y, int step) {
     while (x >= 0 && x < watermark.width && is_white(watermark.at(x, y))) {
         x += step;
     }
 }
 
+// Функция наложения водяного изображения на исходное
 BmpImage apply_watermark(const BmpImage& original, const BmpImage& watermark) {
     BmpImage result = original;
 
