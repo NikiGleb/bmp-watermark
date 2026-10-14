@@ -41,10 +41,14 @@ void pass_watermark_border(const BmpImage& watermark, int& x, int y, int step) {
 BmpImage apply_watermark(const BmpImage& original, const BmpImage& watermark) {
     BmpImage result = original;
 
+    // Смещение левого верхнего угла знака: так знак упирается в правый нижний угол
+    // Если размеры равны, смещение 0 и знак ложится на всё изображение
     const int translocation_x = original.width - watermark.width;
     const int translocation_y = original.height - watermark.height;
 
     for (int y = 0; y < watermark.height; y++) {
+        // В каждой строке находим первый и последний небелый пиксель знака:
+        // белый фон слева и справа от рисунка не накладываем
         int first_x = 0;
         pass_watermark_border(watermark, first_x, y, 1);
 
