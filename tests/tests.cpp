@@ -67,7 +67,7 @@ void test_add_black_square_on_white_picture() {
     testing = apply_watermark(white_picture, black_watermark);
 
     BmpImage test;
-    const std::string test_path = "tests/bmps/test2/test_add_black_square_on_whicte_picture.bmp";
+    const std::string test_path = "tests/bmps/test2/test_add_black_square_on_white_picture.bmp";
     test.load(test_path);
 
     bool same_pixels = true;
@@ -92,5 +92,5 @@ int main() {
     }
 
     std::cout << "All checks passed\n";
-       return 0;
+    return 0;
 }
