@@ -37,14 +37,18 @@ struct Pixel {
 
 #pragma pack(pop)
 
+static_assert(sizeof(BmpFileHeader) == 14, "BmpFileHeader must be 14 bytes");
+static_assert(sizeof(BmpInfoHeader) == 40, "BmpInfoHeader must be 40 bytes");
+static_assert(sizeof(Pixel) == 3, "Pixel must be 3 bytes");
+
 class BmpImage {
     public:
         int width = 0;
         int height = 0;
         std::vector<Pixel> pixels;   
 
-        void load(const std::string& path);
-        void save(const std::string& path) const;
+        bool load(const std::string& path);
+        bool save(const std::string& path) const;
 
         Pixel& at(int x, int y) { 
             return pixels[y * width + x]; 
