@@ -51,7 +51,7 @@ bool BmpImage::load(const std::string& path) {
     }
 
     if (!in) {
-        std::cerr << "Error: not enought pixels\n";
+        std::cerr << "Error: " << path << " is damaged (not enough pixel data)\n";
         return false;
     }
 
