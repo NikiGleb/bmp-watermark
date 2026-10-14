@@ -90,4 +90,11 @@ bool BmpImage::save(const std::string& path) const {
         out.write(reinterpret_cast<const char*>(&pixels[y * width]), width * 3);
         out.write(zeros, padding);
     }
+
+    if (!out) {
+        std::cerr << "Error: failed to write " << path << "\n";
+        return false;
+    }
+
+    return true;
 }
