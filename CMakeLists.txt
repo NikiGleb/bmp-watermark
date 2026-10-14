@@ -8,3 +8,6 @@ target_include_directories(bmp_watermark PUBLIC include)
 
 add_executable(watermark src/main.cpp)
 target_link_libraries(watermark PRIVATE bmp_watermark)
+
+add_executable(watermark_tests tests/tests.cpp)
+target_link_libraries(watermark_tests PRIVATE bmp_watermark)
