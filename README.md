@@ -1,4 +1,5 @@
 # BMP Watermark
+  [![CI](https://github.com/NikiGleb/bmp-watermark/actions/workflows/ci.yml/badge.svg)](https://github.com/NikiGleb/bmp-watermark/actions/workflows/ci.yml)
 
 Проект на C++, разработанный для наложения водяного знака на изображение в формате BMP.
 
@@ -59,7 +60,7 @@ new = original * (1 - kAlpha) + watermark * kAlpha
 - Пиксели начинаются со смещения `bfOffBits` из заголовка файла (54 байта).
 - Каждый пиксель занимает 3 байта в порядке B, G, R.
 
-# Тесты
+## Тесты
 
 Тесты запускаются из корня проекта (пути к тестовым картинкам относительные):
 
