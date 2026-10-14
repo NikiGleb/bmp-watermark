@@ -38,6 +38,7 @@ void test_10_10_red() {
     BmpImage test;
     const std::string test_path = "tests/bmps/test1/10_10_red.bmp";
     test.load(test_path);
+    check(test.load(test_path), "reference image is loaded");
 
     bool same_size = test.width == testing.width && test.height == testing.height;
     check(same_size, "10x10 red: sizes are equal");
@@ -75,6 +76,7 @@ void test_add_black_square_on_white_picture() {
     BmpImage test;
     const std::string test_path = "tests/bmps/test2/test_add_black_square_on_white_picture.bmp";
     test.load(test_path);
+    check(test.load(test_path), "reference image is loaded");
 
     bool same_pixels = true;
     for (int y = 0; y < test.height; y++) {
