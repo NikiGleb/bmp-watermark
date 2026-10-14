@@ -6,12 +6,14 @@
 const std::uint16_t kBmpSignature = 0x4D42;
 
 bool BmpImage::load(const std::string& path) {
+    // Чтение файла в бинарном режиме
     std::ifstream in(path, std::ios::binary);
     if (!in.is_open()) {
         std::cerr << "Error: cannot open file " << path << "\n";
         return false;
     }
 
+    // Объявление и чтение заголовков BMP файла
     BmpFileHeader file_header;
     BmpInfoHeader info_header;
 
@@ -43,9 +45,12 @@ bool BmpImage::load(const std::string& path) {
     height = info_header.height;
     pixels.resize(width * height);
 
+     // Каждая строка в файле дополнена нулевыми байтами до длины, кратной 4
     int padding = (4 - (width * 3) % 4) % 4;
+    // Переходим к началу пикселей: смещение записано в заголовке файла
     in.seekg(file_header.pixel_offset);
 
+    // Чтение файла снизу вверх и запись данных о пикселях
     for (int row = 0; row < height; ++row) {
         int y = height - 1 - row;
         in.read(reinterpret_cast<char*>(&pixels[y * width]), width * 3);
@@ -68,11 +73,13 @@ bool BmpImage::save(const std::string& path) const {
         return false;
     }
 
+    // Длина строки в файле: 3 байта на пиксель + выравнивание до кратности 4
     int padding = (4 - (width * 3) % 4) % 4;
     int row_size = width * 3 + padding;
 
+    // Обнуляем и задаём поля 
     BmpFileHeader file_header{};
-    file_header.type = 0x4D42;
+    file_header.type = kBmpSignature;
     file_header.pixel_offset = sizeof(BmpFileHeader) + sizeof(BmpInfoHeader);
     file_header.file_size = file_header.pixel_offset + row_size * height;
 
@@ -87,6 +94,7 @@ bool BmpImage::save(const std::string& path) const {
     out.write(reinterpret_cast<const char*>(&file_header), sizeof(file_header));
     out.write(reinterpret_cast<const char*>(&info_header), sizeof(info_header));
 
+    // Пишем строки снизу вверх, как требует формат, учитывая выравнивание
     const char zeros[3] = {0, 0, 0};
     for (int row = 0; row < height; ++row) {
         int y = height - 1 - row;
