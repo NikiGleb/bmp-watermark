@@ -3,6 +3,7 @@
 #include <watermark.hpp>
 
 const double kAlpha = 0.5;
+static_assert(kAlpha >= 0.0 && kAlpha <= 1.0, "kAlpha must be between 0.0 and 1.0");
 
 uint8_t mix(uint8_t a, uint8_t b) {
     double value = a * (1.0 - kAlpha) + b * kAlpha;
