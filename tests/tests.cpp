@@ -72,9 +72,7 @@ void test_add_black_square_on_white_picture() {
 
     bool same_pixels = true;
     for (int y = 0; y < test.height; y++) {
-        for (int x = 0; x < test.width; x++) {
-            std::cout << int(test.at(x, y).red) << " " << int(test.at(x, y).green) << " " << int(test.at(x, y).blue) << "\n";
-            std::cout << int(testing.at(x, y).red) << " " << int(testing.at(x, y).green) << " " << int(testing.at(x, y).blue) << "\n";
+        for (int x = 0; x < test.width; x++) {        
             if (!same_color(test.at(x, y), testing.at(x, y))) {
                 same_pixels = false;
             }
@@ -87,4 +85,12 @@ void test_add_black_square_on_white_picture() {
 int main() {
     test_10_10_red();
     test_add_black_square_on_white_picture();
+
+    if(failed_tests>0){
+        std::cout << failed_tests << " check(s) failed\n";
+        return 1;
+    }
+
+    std::cout << "All checks passed\n";
+       return 0;
 }
