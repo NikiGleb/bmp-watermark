@@ -1,3 +1,7 @@
+// Автотесты
+// Каждая проверка печатает [OK] или [FAIL]. Если хоть одна не прошла, программа возвращает 1 
+// Запускать из корня проекта: пути к картинкам относительные
+
 #include <iostream>
 #include <string>
 
@@ -20,6 +24,7 @@ bool same_color(const Pixel p1, const Pixel p2) {
     return p1.red == p2.red && p1.blue == p2.blue && p1.green == p2.green;
 }
 
+// Создаём красную картинку 10x10, сохраняем и сравниваем с эталоном, нарисованным в Paint
 void test_10_10_red() {
     const Pixel red{0, 0, 255};
 
@@ -49,6 +54,7 @@ void test_10_10_red() {
     check(same_pixels, "10x10 red: all pixels are equal");
 }
 
+// Накладываем чёрный знак 3x3 на белую картинку 10x10 и сравниваем с эталоном из Paint
 void test_add_black_square_on_white_picture() {
     const Pixel white{255, 255, 255};
     const Pixel black{0, 0, 0};

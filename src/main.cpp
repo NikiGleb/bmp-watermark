@@ -4,6 +4,7 @@
 #include <watermark.hpp>
 
 int main(int argc, char* argv[]) {
+    // argv[0] — имя программы, argv[1..3] — исходное изображение, водяной знак, результат
     if (argc != 4) {
         std::cerr << "Usage: " << argv[0] << " <image.bmp> <watermark.bmp> <output.bmp>\n";
         return 1;
