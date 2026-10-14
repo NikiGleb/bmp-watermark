@@ -23,7 +23,8 @@ int main(int argc, char* argv[]) {
     }
 
     if (watermark.width > original.width || watermark.height > original.height) {
-        std::cout << "Watermark is bigger than image\n";
+        std::cerr << "Watermark is bigger than image\n";
+        return 1;
     }
 
     result = apply_watermark(original, watermark);
