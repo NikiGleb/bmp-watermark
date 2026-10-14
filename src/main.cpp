@@ -4,6 +4,11 @@
 #include <watermark.hpp>
 
 int main(int argc, char* argv[]) {
+    if (argc != 4) {
+        std::cerr << "Usage: " << argv[0] << " <image.bmp> <watermark.bmp> <output.bmp>\n";
+        return 1;
+    }
+
     BmpImage original;
     BmpImage watermark;
     BmpImage result;
@@ -26,4 +31,5 @@ int main(int argc, char* argv[]) {
     }
 
     std::cout << "Done.\n";
+    return 0;
 }
