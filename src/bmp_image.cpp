@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 
+// Сигнатура "BM": байты 'B' (0x42) и 'M' (0x4D), в little-endian — число 0x4D42
 const std::uint16_t kBmpSignature = 0x4D42;
 
 bool BmpImage::load(const std::string& path) {
@@ -16,7 +17,8 @@ bool BmpImage::load(const std::string& path) {
 
     in.read(reinterpret_cast<char*>(&file_header), sizeof(file_header));
     in.read(reinterpret_cast<char*>(&info_header), sizeof(info_header));
-
+    
+    // Проверка: !in — чтение не удалось, файл короче 54 байт заголовков
     if (!in) {
         std::cerr << "Error: " << path << " is too short to be a BMP file\n";
         return false;
@@ -50,6 +52,7 @@ bool BmpImage::load(const std::string& path) {
         in.ignore(padding);  // пропускаем байты выравнивания
     }
 
+    // Проверка: !in - файл закончился раньше, чем прочитались все пиксели
     if (!in) {
         std::cerr << "Error: " << path << " is damaged (not enough pixel data)\n";
         return false;
@@ -91,6 +94,7 @@ bool BmpImage::save(const std::string& path) const {
         out.write(zeros, padding);
     }
 
+    // Проверка: !out - ошибка при записи файла 
     if (!out) {
         std::cerr << "Error: failed to write " << path << "\n";
         return false;
