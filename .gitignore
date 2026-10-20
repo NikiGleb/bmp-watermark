@@ -1,8 +1,9 @@
-test.cpp
-test
-tiny.bmp
 .vscode/
+
 out/
 build/
-test_bmp
-out/
+
+tests/bmps/test1/testing.bmp
+
+CMakePresets.json
+CMakeUserPresets.json
