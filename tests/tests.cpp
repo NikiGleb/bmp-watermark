@@ -1,5 +1,5 @@
 // Автотесты
-// Каждая проверка печатает [OK] или [FAIL]. Если хоть одна не прошла, программа возвращает 1 
+// Каждая проверка печатает [OK] или [FAIL]. Если хоть одна не прошла, программа возвращает 1
 // Запускать из корня проекта: пути к картинкам относительные
 
 #include <iostream>
@@ -24,6 +24,22 @@ bool same_color(const Pixel p1, const Pixel p2) {
     return p1.red == p2.red && p1.blue == p2.blue && p1.green == p2.green;
 }
 
+bool same_image(const BmpImage& a, const BmpImage& b) {
+    if (a.width != b.width || a.height != b.height) {
+        return false;
+    }
+
+    for (int y = 0; y < a.height; y++) {
+        for (int x = 0; x < a.width; x++) {
+            if (!same_color(a.at(x, y), b.at(x, y))) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
 // Создаём красную картинку 10x10, сохраняем и сравниваем с эталоном, нарисованным в Paint
 void test_10_10_red() {
     const Pixel red{0, 0, 255};
@@ -33,26 +49,15 @@ void test_10_10_red() {
     testing.height = 10;
     testing.pixels.assign(10 * 10, red);
     const std::string testing_path = "tests/bmps/test1/testing.bmp";
-    testing.save(testing_path);
+    check(testing.save(testing_path), "10x10 red: image is saved");
 
-    BmpImage test;
-    const std::string test_path = "tests/bmps/test1/10_10_red.bmp";
-    test.load(test_path);
-    check(test.load(test_path), "reference image is loaded");
+    BmpImage loaded;
+    check(loaded.load(testing_path), "10x10 red: saved image is loaded back");
+    check(same_image(loaded, testing), "10x10 red: loaded image equals saved one");
 
-    bool same_size = test.width == testing.width && test.height == testing.height;
-    check(same_size, "10x10 red: sizes are equal");
-
-    bool same_pixels = true;
-    for (int y = 0; y < test.height; y++) {
-        for (int x = 0; x < test.width; x++) {
-            if (!same_color(test.at(x, y), testing.at(x, y))) {
-                same_pixels = false;
-            }
-        }
-    }
-
-    check(same_pixels, "10x10 red: all pixels are equal");
+    BmpImage reference;
+    check(reference.load("tests/bmps/test1/10_10_red.bmp"), "10x10 red: reference image is loaded");
+    check(same_image(reference, testing), "10x10 red: image equals reference from Paint");
 }
 
 // Накладываем чёрный знак 3x3 на белую картинку 10x10 и сравниваем с эталоном из Paint
@@ -70,31 +75,19 @@ void test_add_black_square_on_white_picture() {
     black_watermark.height = 3;
     black_watermark.pixels.assign(black_watermark.height * black_watermark.width, black);
 
-    BmpImage testing;
-    testing = apply_watermark(white_picture, black_watermark);
+    BmpImage testing = apply_watermark(white_picture, black_watermark);
 
-    BmpImage test;
-    const std::string test_path = "tests/bmps/test2/test_add_black_square_on_white_picture.bmp";
-    test.load(test_path);
-    check(test.load(test_path), "reference image is loaded");
-
-    bool same_pixels = true;
-    for (int y = 0; y < test.height; y++) {
-        for (int x = 0; x < test.width; x++) {        
-            if (!same_color(test.at(x, y), testing.at(x, y))) {
-                same_pixels = false;
-            }
-        }
-    }
-
-    check(same_pixels, "add black square on white picture: black square 3x3 on corner of white picture");
+    BmpImage reference;
+    check(reference.load("tests/bmps/test2/test_add_black_square_on_white_picture.bmp"),
+          "black square: reference image is loaded");
+    check(same_image(reference, testing), "black square: 3x3 square in the corner of white picture");
 }
 
 int main() {
     test_10_10_red();
     test_add_black_square_on_white_picture();
 
-    if(failed_tests>0){
+    if (failed_tests > 0) {
         std::cout << failed_tests << " check(s) failed\n";
         return 1;
     }
