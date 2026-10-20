@@ -107,6 +107,7 @@ src/watermark.cpp         — смешивание пикселей и нало�
 src/main.cpp              — программа: аргументы командной строки
 tests/tests.cpp           — автотесты
 tests/bmps/               — изображения для тестов
+docs/images/              — PNG-копии тестовых изображений для README
 CMakeLists.txt            — описание сборки
 ```
 
