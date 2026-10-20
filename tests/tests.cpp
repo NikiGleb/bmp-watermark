@@ -83,9 +83,36 @@ void test_add_black_square_on_white_picture() {
     check(same_image(reference, testing), "black square: 3x3 square in the corner of white picture");
 }
 
+void test_4() {
+    BmpImage original;
+    BmpImage watermark;
+    BmpImage expected;
+    check(original.load("tests/bmps/test4/original.bmp"), "test4: original is loaded");
+    check(watermark.load("tests/bmps/test4/watermark.bmp"), "test4: watermark is loaded");
+    check(expected.load("tests/bmps/test4/expected.bmp"), "test4: expected image is loaded");
+
+    BmpImage testing = apply_watermark(original, watermark);
+
+    bool same_size = testing.width == expected.width && testing.height == expected.height;
+    check(same_size, "ITMO: sizes are equal");
+
+    bool same_pixels = same_size;
+    for (int y = 0; same_pixels && y < expected.height; y++) {
+        for (int x = 0; x < expected.width; x++) {
+            if (!same_color(testing.at(x, y), expected.at(x, y))) {
+                same_pixels = false;
+                break;
+            }
+        }
+    }
+
+    check(same_pixels, "ITMO: logo in the bottom-right corner of the photo");
+}
+
 int main() {
     test_10_10_red();
     test_add_black_square_on_white_picture();
+    test_4();
 
     if (failed_tests > 0) {
         std::cout << failed_tests << " check(s) failed\n";
